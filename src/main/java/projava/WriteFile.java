@@ -6,16 +6,11 @@ import java.nio.file.Path;
 
 public class WriteFile {
     public static void main(String[] args) {
-
         var message = """
-                    test
-                    message
-                    """;
-        try {
-            var p = Path.of("test.txt");
-            Files.writeString(p, message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                test
+                message
+                """;
+        var p = Path.of("test.txt");
+        Files.writeString(p, message);
     }
 }
