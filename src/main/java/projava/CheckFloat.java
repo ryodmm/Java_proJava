@@ -38,16 +38,18 @@ public class CheckFloat {
                     }
                 }
                 case MINUS -> {// 負の整数部
-                    if (ch != '-') {
+                    if (ch == '0') {
+                        state = FloatState.ZERO;
+                    } else if (ch >= '1' && ch <= '9') {
                         state = FloatState.INT;
-                    } else if (ch == '.') {
-                        state = FloatState.FRAC_START;
                     } else {
                         return false;
                     }
                 }
                 case FRAC_START, FRAC, FRAC_END -> { // 少数部かつ最後が０だとfalse
-                    if (ch >= '0' && ch <= '9' && ch != '0') {
+                    if (ch == '0') {
+                        state = FloatState.FRAC_END;
+                    } else if (ch >= '1' && ch <= '9') {
                         state = FloatState.FRAC;
                     } else {
                         return false;
