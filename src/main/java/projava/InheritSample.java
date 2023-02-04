@@ -11,14 +11,19 @@ public class InheritSample {
         }
 
         abstract String profile();
+
         @Override
-        public String toString(){
+        public String toString() {
             return profile();
-            // return "%sの%s".formatted(getClass().getSimpleName(), getName());
         }
+
     }
 
     static class Student extends User {
+        @Override
+        public String toString() {
+            return "%sの%s".formatted(getClass().getSimpleName(), getName());
+        }
 
         int score;
 
@@ -57,6 +62,12 @@ public class InheritSample {
 
     public static void main(String[] args) {
         List<User> people = List.of(
+            new User() {
+                @Override
+                String profile() {
+                    return "ダミー";
+                }
+            },
             new Student("kis", 80),
             new Teacher("hosoya", "Math"));
         for(var p : people) {
