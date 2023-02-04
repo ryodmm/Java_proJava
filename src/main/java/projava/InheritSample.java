@@ -3,15 +3,23 @@ package projava;
 import java.util.List;
 
 public class InheritSample {
-    static class User {
+    static abstract class User {
         String name;
 
         public String getName() {
             return name;
         }
+
+        abstract String profile();
+        @Override
+        public String toString(){
+            return profile();
+            // return "%sの%s".formatted(getClass().getSimpleName(), getName());
+        }
     }
 
     static class Student extends User {
+
         int score;
 
         Student(String name, int score){
@@ -21,6 +29,11 @@ public class InheritSample {
 
         public int getScore() {
             return score;
+        }
+
+        @Override
+        String profile() {
+            return null;
         }
     }
 
@@ -35,6 +48,11 @@ public class InheritSample {
         public String getSubject() {
             return subject;
         }
+
+        @Override
+        String profile() {
+            return null;
+        }
     }
 
     public static void main(String[] args) {
@@ -44,5 +62,6 @@ public class InheritSample {
         for(var p : people) {
             System.out.println("こんにちは%sさん".formatted(p.getName()));
         }
+
     }
 }
