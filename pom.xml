@@ -13,5 +13,12 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>one.cafebabe</groupId>
+            <artifactId>businessCalendar4j</artifactId>
+            <version>1.21</version>
+        </dependency>
+    </dependencies>
 
 </project>
