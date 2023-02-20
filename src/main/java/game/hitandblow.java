@@ -14,17 +14,17 @@ public class hitandblow {
 
          */
 
-        int[] number = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int[] num = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
         // 配列の中身をシャッフル
-        for (int j = number.length; - j > 0; j--) {
+        for (int j = num.length -1; j > 0; j--) {
             int r = (int) (Math.random() * (j + 1));
-            int tmp = number[j];
-            number[j] = number[r];
-            number[r] = tmp;
+            int tmp = num[j];
+            num[j] = num[r];
+            num[r] = tmp;
 
             // シャッフル動作確認
-            for (int check : number) {
+            for (int check : num) {
                 System.out.println(check);
             }
             System.out.println();
